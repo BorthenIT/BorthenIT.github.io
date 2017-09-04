@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firkant</title>
+
+    <style>
+
+        * {
+            margin: 0px;
+        }
+
+        #firkant {
+            width: 100px;
+            height: 50px;
+            background-color: blue;
+            transition: 1s;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="firkant"></div>
+
+
+    <script>
+
+        document.onclick = (klikk) => {
+            document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100, 50)`;
+            document.getElementById("firkant").style.backgroundColor = "orange";
+            document.getElementById("firkant").style.width = `${klikk.clientX}px`;
+            document.getElementById("firkant").style.height = `${klikk.clientY}px`;
+        };
+
+    </script>
+
+</body>
+</html>
