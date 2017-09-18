@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vinner</title>
+</head>
+<body>
+
+    <script>
+        var vinner = Math.floor(Math.random()*10+1);
+        var txtUt="";
+        while(vinner!==10){
+            txtUt+="Du vant ikke! ";
+            vinner = Math.floor(Math.random()*10+1);
+        }
+        txtUt+="Du vant!"
+        document.write(txtUt);
+    </script>
+
+</body>
+</html>

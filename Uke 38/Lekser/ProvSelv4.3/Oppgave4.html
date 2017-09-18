@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buss Billett</title>
+    <style>
+        body {
+            color: black;
+            font-family: sans-serif;
+            font-size: 16px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+
+        var pris = prompt("Hva slags billett ønsker du? Du kan velge mellom: Barn, Pensjonist, Ungdom, Voksen");
+
+        switch(pris.toLowerCase()) {
+            case "barn":
+            case "pensjonist":
+                document.write("Denne billetten koster 20kr.");
+            break;
+            case "ungdom":
+                document.write("Denne billetten koster 25kr.");
+            break;
+            case "voksen":
+                document.write("Denne billetten koster 30kr.");
+            break;
+            default:
+                document.write("Hva mener du? Skriv inn øsnket billett på nytt ved å refreshe siden.")
+            break;
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vanrett streker</title>
+</head>
+<body>
+
+    <canvas id="minCanvas" width="300" height="300"> </canvas>
+    <script>
+        var canvas = document.getElementById("minCanvas");
+        var ctx = canvas.getContext("2d");
+        var side = 300; //Bredde og høyde
+        var xPosisjon = 0; //Startposisjon x
+        var yPosisjon = 0; //Startposisjon y
+        while(yPosisjon<300) {
+            ctx.lineTo(xPosisjon+side,yPosisjon);
+            ctx.stroke();
+            yPosisjon = yPosisjon+10;
+            ctx.moveTo(xPosisjon, yPosisjon);
+        }
+
+    </script>
+
+</body>
+</html>
