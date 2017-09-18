@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spørreprogram</title>
+
+    <style>
+
+        #imgPokal {
+            width: 150px;
+        }
+
+        #imgNarr {
+            width: 150px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <img id="imgPokal">
+    <img id="imgNarr">
+
+    <script>
+
+        var svar = prompt("Hvor gammel er Leon?");
+        var imgPokal = document.getElementById("imgPokal");
+        var imgNarr = document.getElementById("imgNarr");
+
+        if(svar === "18 år") {
+            document.write("Du har svart riktig. Leon er 18 år.");
+            imgPokal.src = "pokal.png";
+        } else {
+            document.write("Du har svart Feil. Leon er 18 år.");
+            imgNarr.src = "hoffnarr.jpg";
+        }
+
+    </script>
+
+</body>
+</html>

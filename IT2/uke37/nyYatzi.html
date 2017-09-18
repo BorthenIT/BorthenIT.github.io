@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yatzy</title>
+</head>
+<body>
+
+    <script>
+
+        var s = Math.pow(6, 4);
+        document.body.innerHTML = "<h1>" + s + "</h1>";
+
+        var antallKast = 0;
+
+        function sjekkYatzi() {
+
+            antallKast++;
+            var t1 = Math.ceil(Math.random() * 6);
+            var t2 = Math.ceil(Math.random() * 6);
+            var t3 = Math.ceil(Math.random() * 6);
+            var t4 = Math.ceil(Math.random() * 6);
+            var t5 = Math.ceil(Math.random() * 6);
+
+            if (t1 === t2 && t2 === t3 && t3 === t4 && t4 === t5) {
+                document.body.innerHTML += "<p>DU FIKK YATZI på " + antallKast + "kast</p>";
+                antallKast = 0;
+            }
+
+        }
+
+        setInterval(sjekkYatzi, 0.1);
+
+    </script>
+
+</body>
+</html>

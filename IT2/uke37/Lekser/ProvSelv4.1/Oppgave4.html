@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ukedag&dato</title>
+
+    <style>
+
+        #fredag {
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <img id="imgFredag">
+    <img id="imgKalender">
+
+    <script>
+
+        var svar = prompt("Hvilken dag er det idag? (Dag og dato)");
+        var dato = new Date();
+        var ukedag = dato.getDay();
+
+        var imgFredag = document.getElementById("imgFredag");
+        var imgKalender = document.getElementById("imgKalender");
+
+        if(svar === "Fredag 13") {
+            document.write("<p>Pass på i dag er det fredag den 13.</p>")
+            imgFredag.src = "fredag13.jpg";
+        }
+        else if(ukedag === 1) {
+            document.write("<p>Ha en god dag!</p>");
+            imgKalender.src = "Kalender.png";
+        }
+
+
+    </script>
+
+</body>
+</html>
