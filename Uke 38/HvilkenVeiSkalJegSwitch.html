@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hvilken vei skal jeg?</title>
+</head>
+<body>
+
+    <script>
+
+        var retning = prompt("Hvilken vei skal du?");
+
+        switch(retning.toLowerCase()) {
+            case "opp":
+            case "oppover":
+                console.log("Jeg skal oppover");
+                break;
+            case "ned":
+            case "nedover":
+                console.log("Jeg skal nedover");
+                break;
+            case "venstre":
+                console.log("Jeg skal til venstre");
+                break;
+            case "høyre":
+                console.log("Jeg skal til høyre");
+                break;
+            default:
+                console.log("Jeg står stille");
+        }
+
+    </script>
+
+</body>
+</html>
