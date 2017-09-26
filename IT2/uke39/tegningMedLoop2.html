@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tegning med loop</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #canvas {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas width="200" height="200" id="canvas"></canvas>
+
+    <script>
+
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        function tegnsirkler() {
+
+            for(var x=1; x < 1000; x+=1) {
+
+                ctx.beginPath();
+                ctx.strokeStyle = `hsl(${Math.random()*180}, 100%, 50%)`;
+                ctx.arc(innerWidth/2, innerHeight/2, x, 0, 2*Math.PI);
+                ctx.stroke();
+                ctx.closePath();
+
+            }
+
+        }
+
+        setInterval(tegnsirkler, 100)
+
+    </script>
+
+</body>
+</html>
