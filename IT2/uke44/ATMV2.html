@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM</title>
+</head>
+<body>
+
+    <h1>ATM</h1>
+    <form id="skjema">
+
+        <input id="inpBelop" required type="number">
+        <input type="radio" name="rbTransaksjon" id="rbUttak" required>
+        <label for="rbUttak">Ta ut penger</label>
+
+        <input type="radio" name="rbTransaksjon" id="rbInnskudd" required>
+        <label for="rbInnskudd">Sette inn penger</label>
+
+        <button type="submit">Utfør transaksjon</button>
+
+    </form>
+
+    <div id="info"></div>
+
+    <script>
+
+        var saldo = 50000;
+        var skjema = document.getElementById("skjema");
+        var rbUttak = document.getElementById("rbUttak");
+        var rbInnskudd = document.getElementById("rbInnskudd");
+        var inpBelop = document.getElementById("inpBelop");
+        var info = document.getElementById("info");
+
+        function visSaldo() {
+            info.innerHTML = "Saldo på kontoen er: " + saldo.toFixed(2) + "kr";
+            visSaldo();
+        }
+
+        function taUtPenger(belop) {
+            if(saldo >= belop) {
+                saldo = saldo - belop;
+            } else {
+                info.innerHTML = "Du har ikke nok penger";
+                info.innerHTML += "Saldo er " + saldo + "kr";
+            }
+        }
+
+        function settInnPenger(belop) {
+            saldo = saldo + belop;
+        }
+
+        function transaksjon() {
+            evt.preventDefault();
+            var belop = Number(inpBelop.value);
+        }
+
+        if(rbUttak.checked) {
+            taUtPenger(belop);
+        } else {
+            settInnPenger(belop);
+        }
+
+        skjema.onsubmit = transaksjon;
+
+
+
+    </script>
+
+</body>
+</html>

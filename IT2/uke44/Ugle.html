@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uglen</title>
+    <style>
+
+        #owl {
+            width: 200px;
+            height: 200px;
+            background-color: #cccccc;
+            margin: 60px;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <input type="color" id="inpColor" value="#cccccc">
+        <input type="range" id="inpRotation" value="0" min="0" max="360">
+    </div>
+
+    <div id="owl"></div>
+
+    <script>
+
+        var inpColor = document.getElementById("inpColor");
+        var inpRotation = document.getElementById("inpRotation");
+        var owl = document.getElementById("owl");
+
+        inpColor.oninput = function () {
+            owl.style.backgroundColor = inpColor.value;
+        };
+
+        inpRotation.onchange = function () {
+            owl.style.transform = `rotate(${inpRotation.value}deg)`;
+        };
+
+
+
+    </script>
+
+</body>
+</html>

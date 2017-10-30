@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATM</title>
+</head>
+<body>
+
+    <h1>ATM</h1>
+    <input type="number" id="inpMoney">
+    <button onclick="taUtPenger()">Ta ut penger</button>
+    <div id="info"></div>
+
+
+    <script>
+
+        //Definere en saldo
+        var saldo = 50000;
+        var inpMoney = document.getElementById("inpMoney");
+        var info = document.getElementById("info");
+
+        function visSaldo() {
+            info.innerHTML = "Saldo på kontoen er: " + saldo.toFixed(2) + "kr";
+        }
+
+        function taUtPenger() {
+            var money = Number(inpMoney.value);
+            saldo = saldo - money;
+
+            visSaldo();
+        }
+
+    </script>
+
+</body>
+</html>
