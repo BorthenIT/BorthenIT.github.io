@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ATM</title>
 </head>
 <body>
 
-    <h1>ATM</h1>
+    <h1>Minibanken</h1>
     <form id="skjema">
 
         <input id="inpBelop" required type="number">
@@ -22,9 +23,10 @@
 
     <div id="info"></div>
 
-    <script>
 
+    <script>
         var saldo = 50000;
+        // DOM-elementer
         var skjema = document.getElementById("skjema");
         var rbUttak = document.getElementById("rbUttak");
         var rbInnskudd = document.getElementById("rbInnskudd");
@@ -32,38 +34,32 @@
         var info = document.getElementById("info");
 
         function visSaldo() {
-            info.innerHTML = "Saldo på kontoen er: " + saldo.toFixed(2) + "kr";
-            visSaldo();
+            info.innerHTML = "Saldo er: " + saldo.toFixed(2) + "kr";
         }
-
         function taUtPenger(belop) {
             if(saldo >= belop) {
                 saldo = saldo - belop;
+                visSaldo();
             } else {
-                info.innerHTML = "Du har ikke nok penger";
-                info.innerHTML += "Saldo er " + saldo + "kr";
+                info.innerHTML = "Du har ikke nok penger!!! ";
+                info.innerHTML += "<br>Saldo er: " + saldo + "kr";
             }
         }
-
-        function settInnPenger(belop) {
+        function settInnPenger(belop){
             saldo = saldo + belop;
+            // saldo += belop;
+            visSaldo();
         }
-
-        function transaksjon() {
+        function transaksjon(evt) {
             evt.preventDefault();
             var belop = Number(inpBelop.value);
+            if(rbUttak.checked) {
+                taUtPenger(belop);
+            } else {
+                settInnPenger(belop);
+            }
         }
-
-        if(rbUttak.checked) {
-            taUtPenger(belop);
-        } else {
-            settInnPenger(belop);
-        }
-
         skjema.onsubmit = transaksjon;
-
-
-
     </script>
 
 </body>

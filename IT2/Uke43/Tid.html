@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tid</title>
+</head>
+<body>
+
+    <button id="btn">START</button>
+    <button id="btnReset">Reset</button>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        var btnReset = document.getElementById("btnReset");
+        var antall = 0;
+
+        var tidenflyr = false;
+
+        function startKlokka() {
+
+            //Starter stopp funksjonen etter 10 sekunder
+            setTimeout(stoppKlokka, 10000);
+            tidenflyr = true;
+            antall = 0; //Reset antall
+
+        }
+
+        function stoppKlokka() {
+            tidenflyr = false;
+        }
+
+        function tell() {
+
+            if(tidenflyr) {
+                antall++;
+            } else {
+                startKlokka();
+                antall++;
+            }
+
+        }
+
+        btn.onclick = tell;
+
+    </script>
+
+</body>
+</html>

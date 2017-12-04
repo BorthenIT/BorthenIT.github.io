@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Super-butikken</title>
+</head>
+<body>
+
+
+<h1>Velg varer</h1>
+<div>
+    <button id="btnBanan">Banan (20 kr)</button>
+    <button id="btnEple">Eple (15 kr)</button>
+    <button id="btnFersken">Fersken (30 kr)</button>
+</div>
+
+<h1>Handlekurv</h1>
+<div id="divHandlekurv"></div>
+
+<script>
+    var btnBanan = document.getElementById("btnBanan");
+    var btnEple = document.getElementById("btnEple");
+    var btnFersken = document.getElementById("btnFersken");
+    var divHandlekurv = document.getElementById("divHandlekurv");
+    var handlekurv = [];
+    function tomHandlekurv(){
+        handlekurv = [];
+        divHandlekurv.innerHTML = "";
+    }
+    function visKurv() {
+        var sum = 0;
+        divHandlekurv.innerHTML = "";
+        for (var vare of handlekurv) {
+            sum += vare.pris;
+            divHandlekurv.innerHTML += `
+                    <div>
+                        ${vare.navn} a kr ${vare.pris}
+                    </div>
+                `;
+        }
+        divHandlekurv.innerHTML += `
+                <hr>
+                <div>Summen er kr ${sum}</div>
+                <button onclick="tomHandlekurv()">Tøm handlekurven</button>
+            `;
+    }
+    btnBanan.onclick = function() {
+        handlekurv.push({
+            navn: "Banan",
+            pris: 20
+        });
+        visKurv();
+    };
+    btnEple.onclick = function() {
+        handlekurv.push({
+            navn: "Eple",
+            pris: 15
+        });
+        visKurv();
+    };
+    btnFersken.onclick = function() {
+        handlekurv.push({
+            navn: "Fersken",
+            pris: 30
+        });
+        visKurv();
+    };
+</script>
+
+</body>
+</html>

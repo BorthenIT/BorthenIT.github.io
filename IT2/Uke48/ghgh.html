@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 2 - Del 2</title>
+</head>
+<body>
+
+<h1>Hvem er sterkest?</h1>
+
+<button id="btnSupermann">Supermann</button>
+<button id="btnBatman">Batman</button>
+<button id="btnSpiderman">Spiderman</button>
+
+<div>
+
+    <p>Supermann har <span id="txtSupermann">0</span> stemmer</p>
+    <p>Batman har <span id="txtBatman">0</span> stemmer</p>
+    <p>Spiderman har <span id="txtSpiderman">0</span> stemmer</p>
+
+</div>
+
+<script>
+    var btnSupermann = document.getElementById("btnSupermann");
+    var btnBatman = document.getElementById("btnBatman");
+    var btnSpiderman = document.getElementById("btnSpiderman");
+    var txtSupermann = document.getElementById("txtSupermann");
+    var txtBatman = document.getElementById("txtBatman");
+    var txtSpiderman = document.getElementById("txtSpiderman");
+    var antSupermann = 0;
+    var antBatman = 0;
+    var antSpiderman = 0;
+    function visAntall() {
+        txtSupermann.innerHTML = antSupermann;
+        txtBatman.innerHTML = antBatman;
+        txtSpiderman.innerHTML = antSpiderman;
+    }
+    btnSupermann.onclick = function() {
+        antSupermann++;
+        visAntall();
+    };
+    btnBatman.onclick = function() {
+        antBatman++;
+        visAntall();
+    };
+    btnSpiderman.onclick = function() {
+        antSpiderman++;
+        visAntall();
+    }
+</script>
+
+</body>
+</html>

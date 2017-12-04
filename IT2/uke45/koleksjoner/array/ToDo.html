@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To do list</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+        }
+    </style>
+</head>
+<section>
+
+    <form id="skjema">
+
+        <input type="text" id="inpToDo" required placeholder="What needs to be done">
+
+    </form>
+
+    <section id="ListeMedTodos">
+
+    </section>
+
+    <script>
+
+        var skjema = document.getElementById("skjema");
+        var ListeMedTodos = document.getElementById("ListeMedTodos");
+        var inpToDo = document.getElementById("inpToDo");
+
+        var todos = [
+            { task: "Vaske gulvet", done: false },
+            { task: "Gå ut med søppel", done: true },
+            { task: "Kjøpe mat", done: false }
+        ];
+
+        function visTodos() {
+            ListeMedTodos.innerHTML = "";
+            for(var todo of todos) {
+                ListeMedTodos.innerHTML += `
+            <div>
+                <input type="checkbox">
+                <label>${todo.task}</label>
+            </div>
+            `;
+            }
+        }
+
+        function nyTodo(evt) {
+            evt.preventDefault();
+            todos.push({task: inpToDo.value, done: false});
+            visTodos();
+        }
+
+        skjema.onsubmit = nyTodo;
+
+        visTodos();
+
+
+    </script>
+
+</body>
+</html>

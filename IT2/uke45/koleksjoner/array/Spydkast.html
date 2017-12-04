@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spydkast</title>
+</head>
+<body>
+
+    <form id="skjema">
+        <input type="text" id="inpLengde" required placeholder="Lengde på kast">
+        <button type="submit">OK</button>
+    </form>
+
+
+    <script>
+
+        var skjema = document.getElementById("skjema");
+        var inpLengde = document.getElementById("inpLengde");
+
+        var kastene = []; //Et tomt array
+
+        function leggSammenLengder() {
+
+            var totalLengde = 0;
+            for(var kast of kastene) {
+                totalLengde += kast;
+            }
+            console.log("Dere har kastet " + totalLengde + " meter");
+
+        }
+
+        function registrerKast(evt) {
+            evt.preventDefault();
+            var kast = Number(inpLengde.value);
+            kastene.push(kast);
+            inpLengde.value = "";
+            console.log(kastene);
+            leggSammenLengder();
+        }
+
+        skjema.onsubmit = registrerKast;
+
+    </script>
+
+</body>
+</html>

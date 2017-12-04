@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrere fag</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+
+    <style>
+
+        #regFag {
+            height: 30px;
+            width: 120px;
+            margin: 10px;
+            background-color: blue;
+            border-radius: 30px;
+            color: white;
+        }
+
+        body {
+            margin-left: 10px;
+        }
+
+        h1, p {
+            margin-left: 20px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div>
+    <h1>Registrering av fag</h1>
+    <p>På denne siden vil du kunne legge inn dine fag. Fyll ut dag, fagnavn og tid.</p>
+    <p>Fyll inn både start og slutttid i faget. (Eksempel: 0830-1230)</p>
+</div>
+
+<form id="skjema">
+
+    <input id="inpDag" type="text" placeholder="Dag">
+    <input id="inpNavn" type="text" placeholder="Fagnavn">
+    <input id="inpTid" type="text" placeholder="Tid">
+    <button type="submit" id="regFag">Registrer fag</button>
+
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Dag</th>
+        <th>Fag</th>
+        <th>Tid</th>
+    </tr>
+    </thead>
+    <tbody id="tblTimeplan"></tbody>
+</table>
+
+<script>
+    var skjema = document.getElementById("skjema");
+    var inpDag = document.getElementById("inpDag");
+    var inpNavn = document.getElementById("inpNavn");
+    var inpTid = document.getElementById("inpTid");
+    var tblTimeplan = document.getElementById("tblTimeplan");
+    var fagene = new Map();
+    function rediger(id) {
+        var fag = fagene.get(id);
+        inpDag.value = fag.dag;
+        inpNavn.value = fag.navn;
+        inpTid.value = fag.tid;
+    }
+    function visFagene() {
+        tblTimeplan.innerHTML = "";
+        for( var [key, fag] of fagene ) {
+            tblTimeplan.innerHTML += `
+                    <tr>
+                        <td>${fag.dag}</td>
+                        <td>${fag.navn}</td>
+                        <td>${fag.tid}</td>
+                        <td>
+                            <button onclick="rediger('${key}')">Endre data</button>
+                        </td>
+                    </tr>
+                `;
+        }
+    }
+    function registrerFag(evt) {
+        evt.preventDefault();
+        var fag = {
+            dag: inpDag.value,
+            navn: inpNavn.value,
+            tid: inpTid.value
+        };
+        fagene.set(inpNavn.value, fag);
+        visFagene();
+        inpDag.value = "";
+        inpNavn.value = "";
+        inpTid.value = "";
+    }
+    skjema.onsubmit = registrerFag;
+</script>
+
+
+</body>
+</html>

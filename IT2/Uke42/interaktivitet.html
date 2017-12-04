@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interaktivitet</title>
+</head>
+<body>
+
+    <button id="btnone">Klikk her i stedet</button>
+    <button onclick="visMelding">Klikk her</button>
+
+    <script>
+
+        var btnone = document.getElementById("btnone");
+
+        function visMelding() {
+            alert("Hallo");
+        }
+
+        btnone.onclick = visMelding;
+
+    </script>
+
+</body>
+</html>

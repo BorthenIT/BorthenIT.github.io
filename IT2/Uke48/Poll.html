@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poll</title>
+</head>
+<body>
+
+
+<h1>Hvem er sterkest?</h1>
+<button id="btnSupermann">Supermann</button>
+<button id="btnTarzan">Tarzan</button>
+<button id="btnBamse">Bamse</button>
+
+<p>Supermann har <span id="txtSupermann">0</span> stemmer</p>
+<p>Tarzan har <span id="txtTarzan">0</span> stemmer</p>
+<p>Bamse har <span id="txtBamse">0</span> stemmer</p>
+
+<script>
+    var btnSupermann = document.getElementById("btnSupermann");
+    var btnTarzan = document.getElementById("btnTarzan");
+    var btnBamse = document.getElementById("btnBamse");
+    var txtSupermann = document.getElementById("txtSupermann");
+    var txtTarzan = document.getElementById("txtTarzan");
+    var txtBamse = document.getElementById("txtBamse");
+    var antSupermann = 0;
+    var antTarzan = 0;
+    var antBamse = 0;
+    function visResultat(){
+        txtSupermann.innerHTML = antSupermann;
+        txtTarzan.innerHTML = antTarzan;
+        txtBamse.innerHTML = antBamse;
+    }
+    btnSupermann.onclick = function() {
+        antSupermann++;
+        visResultat();
+    };
+    btnTarzan.onclick = function() {
+        antTarzan++;
+        visResultat();
+    };
+    btnBamse.onclick = function() {
+        antBamse++;
+        visResultat();
+    }
+</script>
+
+</body>
+</html>

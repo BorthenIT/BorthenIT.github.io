@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variabler i og utenfor funksjoner</title>
+</head>
+<body>
+
+    <script>
+
+        //Global variabel
+        var poeng = 0;
+
+        function giPoeng() {
+
+            poeng++;
+
+        }
+
+        function taPoeng() {
+
+            poeng--;
+
+        }
+
+        giPoeng();
+        giPoeng();
+        giPoeng();
+
+
+
+        document.write("Du har nå" + poeng + "POENG");
+
+
+
+    </script>
+
+</body>
+</html>

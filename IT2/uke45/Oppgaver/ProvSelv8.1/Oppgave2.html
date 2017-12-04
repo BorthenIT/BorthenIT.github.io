@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 2</title>
+    <style>
+        body {
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+
+        var trees = [
+            " lønn",
+            " hassel",
+            " bjørk",
+            " blodlønn",
+            " furu",
+            " gran"
+        ];
+
+        trees.splice(3, 0);
+        trees.splice(2, 1, " hengebjørk");
+        trees.splice(4, 5);
+        trees.push(" fjellbjørk", " dvergbjørk");
+
+        trees.sort();
+
+        document.write(trees);
+
+    </script>
+
+</body>
+</html>

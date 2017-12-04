@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            max-width: 600px;
+            padding: 10px;
+            margin: auto;
+        }
+        #divTodos > div {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            grid-gap: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="skjema">
+
+        <input id="inpTodo" type="text" placeholder="Legg til kontakt" required>
+        <input id="nbmr" type="number" placeholder="Legg til nummer" required>
+
+    </form>
+
+    <div id="divTodos">
+
+    </div>
+    <div>
+        <button  class="button" onclick="visTodos()">Vis alle</button>
+        <button  class="button" onclick="visFerdigeTodos()">Vis Favoritter</button>
+        <button  class="button" onclick="visUferdigeTodos()">Slett kontakt</button>
+        <button class="button warning" onclick="slettMarkerte()">Slett</button>
+    </div>
+
+
+
+<script>
+
+    var divTodos = document.getElementById("divTodos");
+    var skjema = document.getElementById("skjema");
+    var inpTodo = document.getElementById("inpTodo");
+    var nbmr = document.getElementById("nbmr");
+    var todos = [
+        { beskrivelse: "Kristian Tjaberg", done: false },
+        { beskrivelse: "Tobias Rustad", done: false },
+        { beskrivelse: "Oscar Jahre", done: false },
+        { beskrivelse: "Oscar Lysgård", done: false },
+        { beskrivelse: "Jonas Zimmer", done: false }
+    ];
+
+    function slettMarkerte() {
+        var umarkerte = [];
+        for(var todo of todos) {
+            if(!todo.done) {
+                umarkerte.push(todo);
+            }
+        }
+        // Bytter ut arrayet
+        todos = umarkerte;
+        visTodos();
+    }
+    function nyTodo(evt) {
+        evt.preventDefault();
+        var todo = {
+            beskrivelse: inpTodo.value,
+            done: false
+        };
+        todos.push(todo);
+        visTodos();
+        inpTodo.value = "";
+
+
+    }
+    function slett(i) {
+        todos.splice(i, 1);
+        visTodos();
+    }
+    function marker(i) {
+        var todo = todos[i];
+        var rad = document.querySelector(`#divTodos > div:nth-child(${i + 1})`);
+        var cb = rad.querySelector("input[type=checkbox]");
+        console.log(cb);
+        if(cb.checked) {
+            todo.done = true;
+        } else {
+            todo.done = false;
+        }
+        visTodos();
+    }
+    function visTodos() {
+        divTodos.innerHTML = "";
+        for( var [indeks, todo] of todos.entries() ) {
+            var stil = "text-decoration: none";
+            var sjekket = "";
+            if(todo.done) {
+                sjekket = "checked";
+            }
+            divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox" ${sjekket} onchange="marker(${indeks})">
+                        <span style="${stil}">${todo.beskrivelse}</span>
+                        <button onclick="slett(${indeks})" class="tiny button">X</button>
+                    </div>
+                `;
+        }
+    }
+    function visUferdigeTodos() {
+        divTodos.innerHTML = "";
+        for(var todo of todos) {
+            if(!todo.done) {
+                divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox">
+                        <span>${todo.beskrivelse}</span>
+                        <button>X</button>
+                    </div>
+                `;
+            }
+        }
+    }
+    function visFerdigeTodos() {
+        divTodos.innerHTML = "";
+        for(var todo of todos) {
+            if(todo.done) {
+                divTodos.innerHTML += `
+                    <div>
+                        <input type="checkbox">
+                        <span>${todo.beskrivelse}</span>
+                        <button>X</button>
+                    </div>
+                `;
+            }
+        }
+    }
+    skjema.onsubmit = nyTodo;
+
+    visTodos();
+
+
+ </script>
+
+</body>
+</html>

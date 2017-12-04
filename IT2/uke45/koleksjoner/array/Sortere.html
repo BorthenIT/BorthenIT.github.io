@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sortere</title>
+</head>
+<body>
+
+    <script>
+
+        var tallene = [3, 4, 6, 7, 8, 43, 1, 2, 12, 40];
+
+        //Sorterer stigende
+        tallene.sort(function(a, b){
+            return a - b;
+        });
+
+        console.log(tallene);
+
+        //Sorterer synkende
+        tallene.sort(function(a, b){
+            return b - a;
+        });
+
+        console.log(tallene);
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 3</title>
+
+    <style>
+
+        img {
+            max-height: 600px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <button id="btn">Vis neste bilde</button>
+    <img id="imgBilder">
+
+    <script>
+
+        var btn = document.getElementById("btn");
+        var imgBilder = document.getElementById("imgBilder");
+
+        var bilder = [
+            "IMG_2546.PNG",
+            "IMG_2671.JPG",
+            "IMG_2689.jpg",
+            "IMG_2698.JPG",
+            "IMG_2690.JPG"
+        ];
+
+        var i = 0;
+        imgBilder.src = bilder[0];
+        btn.onclick = function () {
+            i++;
+            if(i===bilder.length) {
+                i = 0;
+            }
+            imgBilder.src = bilder[i];
+        }
+
+
+       </script>
+
+
+</body>
+</html>

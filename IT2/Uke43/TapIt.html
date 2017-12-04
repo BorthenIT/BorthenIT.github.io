@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tap</title>
+</head>
+<body>
+
+    <script>
+
+        var resultater = [
+            {
+                "finger": "Venstre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Venstre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Venstre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Venstre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Venstre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Høyre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Høyre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Høyre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Høyre pekefinger",
+                "antall": 0
+            },
+            {
+                "finger": "Høyre pekefinger",
+                "antall": 0
+            }
+        ];
+
+        function visResultater() {
+
+            var antallVenstre = 0;
+            var antallHoyre = 0;
+
+            for(var i=0; i<resultater.length; i++) {
+
+                var finger = resultater[i];
+                if(i < 5) {
+                    antallVenstre += finger.antall;
+                } else {
+                    antallHoyre += finger.antall;
+                }
+            }
+
+
+        }
+
+    </script>
+
+</body>
+</html>

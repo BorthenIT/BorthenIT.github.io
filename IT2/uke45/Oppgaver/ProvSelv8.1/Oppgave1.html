@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 1</title>
+    <style>
+        body {
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+
+        var matvarer = [
+            " Ost",
+            " Paprika",
+            " Brød",
+            " Kaviar"
+        ];
+
+        matvarer.unshift(" Skinke");
+        matvarer.pop();
+
+        matvarer.splice(3, 3);
+
+        matvarer.splice(3, 0, " Knekkebrød");
+
+        document.write(matvarer);
+
+
+
+    </script>
+
+</body>
+</html>

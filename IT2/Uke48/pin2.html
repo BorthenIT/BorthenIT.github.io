@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oppgave 1 - Del 2</title>
+    <style>
+        input {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="info">Skriv inn PIN-kode</div>
+<form id="skjema">
+    <input id="inp1" type="text" required autocomplete="off">
+    <input id="inp2" type="text" required autocomplete="off">
+    <input id="inp3" type="text" required autocomplete="off">
+    <input id="inp4" type="text" required autocomplete="off">
+    <button type="submit">OK</button>
+</form>
+
+
+<script>
+    var skjema = document.getElementById("skjema");
+    var info = document.getElementById("info");
+    var inp1 = document.getElementById("inp1");
+    var inp2 = document.getElementById("inp2");
+    var inp3 = document.getElementById("inp3");
+    var inp4 = document.getElementById("inp4");
+    var antallForsok = 0;
+    var maksForsok = 3;
+    var pintall1 = "3";
+    var pintall2 = "2";
+    var pintall3 = "6";
+    var pintall4 = "1";
+    function restart() {
+        inp1.disabled = false;
+        inp2.disabled = false;
+        inp3.disabled = false;
+        inp4.disabled = false;
+        antallForsok = 0;
+        info.innerHTML = "DU KAN NÅ PRØVE IGJEN";
+    }
+    skjema.onsubmit = function(evt) {
+        evt.preventDefault();
+        if(inp1.value === pintall1 && inp2.value === pintall2 && inp3.value === pintall3 && inp4.value === pintall4){
+            info.innerHTML = "TELEFONEN LÅSES OPP";
+            antallForsok = 0;
+        } else {
+            info.innerHTML = "FEIL KODE";
+            antallForsok++;
+            if(antallForsok === 3) {
+                info.innerHTML = "VENT 30 SEKUNDER OG PRØVE PÅ NYTT";
+                inp1.disabled = true;
+                inp2.disabled = true;
+                inp3.disabled = true;
+                inp4.disabled = true;
+                setTimeout(restart, 30000);
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

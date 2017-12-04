@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lampe</title>
+
+    <style>
+
+        body {
+            background-position: center center;
+        }
+
+        #lampene {
+            margin-left: 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background-position: center center;
+            margin-top: 40px;
+
+
+        }
+
+        #lampe1 {
+            background-color: darkgray;
+            height: 300px;
+            width: 300px;
+            border-radius: 180px;
+
+        }
+        #lampe2 {
+            background-color: darkgray;
+            height: 300px;
+            width: 300px;
+            border-radius: 180px;
+
+        }
+        #lampe3 {
+            background-color: darkgray;
+            height: 300px;
+            width: 300px;
+            border-radius: 180px;
+
+        }
+
+        .slåPÅ {
+            width: 60px;
+            height: 40px;
+            background-color: green;
+            border-radius: 10px;
+            margin-top: 300px;
+            position: fixed;
+            margin-left: 50px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .slåAv {
+            width: 60px;
+            height: 40px;
+            background-color: red;
+            border-radius: 10px;
+            margin-top: 300px;
+            margin-left: 180px;
+            font-size: 14px;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <nav id="lampene">
+        <div id="lampe1">
+            <button id="btn1" class="slåPÅ">Slå på</button>
+            <button id="btn4" class="slåAv">Slå av</button>
+        </div>
+        <div id="lampe2">
+            <button id="btn2" class="slåPÅ">Slå på</button>
+            <button id="btn5" class="slåAv">Slå av</button>
+        </div>
+        <div id="lampe3">
+            <button id="btn3" class="slåPÅ">Slå på</button>
+            <button id="btn6" class="slåAv">Slå av</button>
+        </div>
+    </nav>
+
+
+
+    <script>
+
+        var lampene = document.getElementById("lampene");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var btn5 = document.getElementById("btn5");
+        var btn6 = document.getElementById("btn6");
+
+        var lampe1 = document.getElementById("lampe1");
+        var lampe2 = document.getElementById("lampe2");
+        var lampe3 = document.getElementById("lampe3");
+
+
+            btn1.onclick = function () {
+                lampe1.style.backgroundColor = "yellow";
+            };
+
+            btn2.onclick = function () {
+                lampe2.style.backgroundColor = "yellow";
+            };
+
+            btn3.onclick = function () {
+                lampe3.style.backgroundColor = "yellow";
+            };
+
+
+            btn4.onclick = function () {
+                lampe1.style.backgroundColor = "darkgray";
+            };
+
+            btn5.onclick = function () {
+                lampe2.style.backgroundColor = "darkgray";
+            };
+
+            btn6.onclick = function () {
+                lampe3.style.backgroundColor = "darkgray";
+            };
+
+
+
+
+    </script>
+
+</body>
+</html>

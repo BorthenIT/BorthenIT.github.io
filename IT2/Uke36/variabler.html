@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variabler</title>
+
+    <style>
+
+        body {
+            display: grid;
+            grid-template-columns: repeat(50, 1fr);
+            background-color: black;
+        }
+
+        div {
+            color: greenyellow;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <script>
+
+        var x = 0;
+        var tekst = `Søndag morgen kom den skremmende nyheten fra Nord-Korea om at de hadde gjennomført en «fullstendig vellykket» test av en hydrogenbombe. Bomben kan festes til interkontinentale missiler.
+
+Verdenssamfunnet fordømmer prøvesprengningen. USAs president Donald Trump svarte «vi får se» på spørsmål om det er aktuelt å angripe Nord-Korea.
+
+– Enhver trussel mot USA eller våre territorium, eller allierte, vil bli møtt med en massiv, militær respons, sa forsvarsminister James Mattis.
+
+Samtidig meldte Trump at USA vurderer å stanse all handel med nasjoner som handler med Kim Jong-uns regime.`;
+
+        var y = 1;
+
+
+        function skriv() {
+
+            //Lager et div element med en bokstav
+            var div = document.createElement("div");
+            div.innerHTML = tekst[x];
+            //Legger div-element inn i body
+            document.body.appendChild(div);
+
+            div.style.transform = `scale(${Math.random()* 3})`;
+            div.style.color = `hsl(${Math.random()*240}, 100%, 50%)`;
+
+            document.body.style.gridTemplateColumns = `repeat(${y}, 1fr)`;
+            document.body.style.transform = `scale(${Math.random()*2})`;
+
+            if(y > 50) {
+                y=1;
+            }
+
+            y++;
+
+
+            //Øke x med 1
+            //x = x + 1;
+            //x+=1;
+            x++;
+
+
+
+        }
+
+        setInterval(skriv, 1);
+
+    </script>
+
+</body>
+</html>

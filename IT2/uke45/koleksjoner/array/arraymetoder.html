@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        var matretter = [
+            "Bolognese",
+            "Pizza",
+            "Flesk",
+            "Bacalao",
+            "Fiskepinner",
+            "Salat"
+        ];
+
+        //Kan legge inn en ny matrett
+        //Etter den siste
+        matretter.push("Rakfisk");
+
+        //før den første
+        matretter.unshift("Torsk");
+        console.log(matretter);
+
+        //Legge inn Burger etter bacaloa
+        matretter.splice(3, 0, "Burger");
+        console.log(matretter);
+
+    </script>
+
+</body>
+</html>

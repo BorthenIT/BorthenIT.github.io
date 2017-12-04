@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pin-kode</title>
+</head>
+<body>
+
+<p id="info">Logg inn med pin-kode</p>
+
+<form id="skjema">
+    <input type="text" id="inp1" required>
+    <input type="text" id="inp2" required>
+    <input type="text" id="inp3" required>
+    <input type="text" id="inp4" required>
+    <button type="submit">ENTER PIN</button>
+</form>
+
+<script>
+    var skjema = document.getElementById("skjema");
+    var inp1 = document.getElementById("inp1");
+    var inp2 = document.getElementById("inp2");
+    var inp3 = document.getElementById("inp3");
+    var inp4 = document.getElementById("inp4");
+    var antallForsøk = 0;
+    function låsOpp() {
+        info.innerHTML = "NÅ KAN DU PRØVE IGJEN";
+        inp1.disabled = false;
+        inp2.disabled = false;
+        inp3.disabled = false;
+        inp4.disabled = false;
+        antallForsøk = 0;
+    }
+    function loggInn(evt) {
+        evt.preventDefault();
+        var i1 = inp1.value;
+        var i2 = inp2.value;
+        var i3 = inp3.value;
+        var i4 = inp4.value;
+        if(i1 === "4" && i2 === "8" && i3 === "9" && i4 === "1") {
+            info.innerHTML = "DU ER LOGGET INN";
+            antallForsøk = 0;
+        } else {
+            antallForsøk++;
+            info.innerHTML = "FEIL PIN - DU HAR BRUKT " + antallForsøk + " forsøk";
+            if(antallForsøk === 3){
+                info.innerHTML = "DU HAR BRUKT OPP FORSØKENE DINE. VENT I 30 SEKUNDER";
+                inp1.disabled = true;
+                inp2.disabled = true;
+                inp3.disabled = true;
+                inp4.disabled = true;
+                setTimeout(låsOpp, 5000);
+            }
+        }
+    }
+    skjema.onsubmit = loggInn;
+</script>
+
+
+</body>
+</html>
